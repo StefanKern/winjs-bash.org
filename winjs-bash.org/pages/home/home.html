@@ -23,6 +23,11 @@
             padding: 15px;
             background-color: blue;
         }
+
+        .fragment.homepage section {
+            overflow-y: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -36,13 +41,13 @@
         <section aria-label="Main content" role="main" data-bind="click : nextQuote">
             <div>
                 <div data-bind="visible: nextQuoteAvalible, with: currentQoute">
-                    <p data-bind="with: caption, click: window.nobubble, clickbubble: false" class="comands win-type-x-large">
+                    <!--<p data-bind="with: caption, click: window.nobubble, clickbubble: false" class="comands win-type-x-large">
                         <span data-bind="text: quoteNumber, click: showInBorwser"></span>
                         <span data-bind="click: upvote">+</span>
                         <span data-bind="text: votes"></span>
                         <span data-bind="">-</span>
                         <span data-bind="">[X]</span>
-                    </p>
+                    </p>-->
                     <p data-bind="html: quote" class="win-type-large"></p>
                 </div>
 
@@ -54,7 +59,8 @@
                     <!--<div data-win-control="WinJS.UI.AppBar"
                          data-win-options="{closedDisplayMode:'minimal'}"
                          data-bind="with: caption, click: window.nobubble, clickbubble: false">-->
-                    <div data-win-control="WinJS.UI.AppBar"
+                    <div id="appbar"
+                         data-win-control="WinJS.UI.AppBar"
                          data-win-options="">
                         <button data-win-control="WinJS.UI.AppBarCommand"
                                 data-win-options="{id:'ABCShare',label:'Share',icon:'reshare',

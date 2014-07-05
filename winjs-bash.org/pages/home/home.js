@@ -16,13 +16,14 @@
 
                 var _quoteNumber = $actions.find(":nth-child(1):first")
                 this.quoteNumber = _quoteNumber.text();
+
                 this.showInBorwser = function () {
                     var url = new Windows.Foundation.Uri("http://bash.org/" + _quoteNumber.attr("href"));
                     Windows.System.Launcher.launchUriAsync(url);
                 }
 
-                this.upvote = function () {
-                    var url = "http://bash.org/" + $actions.find(":nth-child(2):first").attr("href");
+                function MakeVoitingRequest(index){
+                    var url = "http://bash.org/" + $actions.find(":nth-child(" + index +"):first").attr("href");
 
                     var msg = new Windows.UI.Popups.MessageDialog(
                         "Progressing Upvote");
@@ -46,6 +47,18 @@
 
                 }
 
+                this.upvote = function () {
+                    MakeVoitingRequest(2);
+                }
+
+                this.downvote = function () {
+                    MakeVoitingRequest(3);
+                }
+
+                this.report = function () {
+                    MakeVoitingRequest(4);
+                }
+
 
                 // http://stackoverflow.com/questions/3442394/jquery-using-text-to-retrieve-only-text-not-nested-in-child-tags
                 this.votes = $actions
@@ -54,14 +67,12 @@
                         .remove()   //remove all the children
                         .end()  //again go back to selected element
                         .text();
-
-
             }
 
             function BashQuote(element) {
                 this.quote = $(element).html();
 
-                this.caption = new BashQuoteAction($(element).prev());
+                this.actions = new BashQuoteAction($(element).prev());
 
             }
 
@@ -91,16 +102,9 @@
                             var $data = $(window.toStaticHTML(data));
                             var $quote = $data.find(".qt");
 
-                            $quote.each(function (i) {
-                                //self.quotelist.push(window.toStaticHTML(element.innerHTML));
-                                //$(this).prev();
-                                //self.quotelist.push($(this).prev().text());
+                            $quote.each(function () {
                                 self.quotelist.push(new BashQuote(this));
                             });
-
-                            //var $quotesave = window.toStaticHTML($quote.html().first());
-
-                            //$('[role="main"]').html($quotesave);
                         },
                         complete: function () {
                             loadingNext = false;
@@ -136,43 +140,47 @@
 
             var vm = new ViewModel();
 
+
+            document.getElementById("ABCShare")
+                .addEventListener("click", _ABCShare, false);
+            document.getElementById("ABCShowInBrowser")
+                .addEventListener("click", _ABCShowInBrowser, false);
+            document.getElementById("ABCUpvote")
+                .addEventListener("click", _ABCUpvote, false);
+            document.getElementById("ABCdownvote")
+                .addEventListener("click", _ABCdownvote, false);
+            document.getElementById("ABCReport")
+                .addEventListener("click", _ABCReport, false);
+            
+            // Command button functions
+            function _ABCShare() {
+                debugger;
+            }
+
+            function _ABCShowInBrowser() {
+                vm.currentQoute().actions.showInBorwser();
+            }
+
+            function _ABCUpvote() {
+                vm.currentQoute().actions.upvote();
+            }
+
+            function _ABCdownvote() {
+                vm.currentQoute().actions.downvote();
+            }
+
+            function _ABCReport() {
+                vm.currentQoute().actions.report();
+            }
+
+
+
             WinJS.UI.processAll(element).then(function () {
                 ko.applyBindings(vm, element);
 
 
 
-                //document.getElementById("ABCShare")
-                //    .addEventListener("click", _ABCShare, false);
-
-                $("#ABCShare").click(_ABCShare);
-                $("#ABCShowInBrowser").click(_ABCShowInBrowser);
-                $("#ABCUpvote").click(_ABCUpvote);
-                $("#ABCdownvote").click(_ABCdownvote);
-                $("#ABCReport").click(_ABCReport);
-
-                // Command button functions
-                function _ABCShare() {
-                    debugger;
-                }
-
-                function _ABCShowInBrowser() {
-                    debugger;
-                }
-
-                function _ABCUpvote() {
-                    debugger;
-                }
-
-                function _ABCdownvote() {
-                    debugger;
-                }
-
-                function _ABCReport() {
-                    debugger;
-                }
             });
-
-
 
 
             //function commandInvokedHandler(command) {
