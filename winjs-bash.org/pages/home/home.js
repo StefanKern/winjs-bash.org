@@ -11,6 +11,10 @@
         // populates the page elements with the app's data.
         ready: function (element, options) {
 
+            //var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
+            //dataTransferManager.addEventListener("datarequested", dataRequested);
+
+
             var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
             dataTransferManager.addEventListener("datarequested", dataRequested);
 
@@ -75,8 +79,17 @@
                         .text();
             }
 
+            // http://css-tricks.com/snippets/javascript/unescape-html-in-js/
+            function htmlDecode(input) {
+                var e = document.createElement('div');
+                e.innerHTML = input;
+                return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+            }
+
             function BashQuote(element) {
                 this.quote = $(element).html();
+                
+                this.escapedQuote = htmlDecode(this.quote);
 
                 this.actions = new BashQuoteAction($(element).prev());
 
@@ -219,26 +232,28 @@
 
                 var currentQuote = vm.currentQoute();
 
-                // Title is required
-                var dataPackageTitle = "bash.org Quote " + currentQuote.actions.quoteNumber;
-                if ((typeof dataPackageTitle === "string") && (dataPackageTitle !== "")) {
-                    var dataPackageWebLink = "bash.org Quote #"+ currentQuote.actions.quoteNumber;
+                //var range = document.createRange();
+                //range.selectNode(document.getElementById("quote"));
+                //request.data = MSApp.createDataPackage(range);
+                //request.data.properties.title = "test";
 
-                    request.data.properties.title = dataPackageTitle;
+                //// Title is required
+                var dataPackageTitle = "bash.org quote " + currentQuote.actions.quoteNumber;
+                //var dataPackageWebLink = "bash.org quote #" + currentQuote.actions.quoteNumber;
+                var quote = currentQuote.escapedQuote;
+                var link = currentQuote.actions.link
+                request.data.setText(quote + "\n\n" + link);
 
-                    // The description is optional.
-                    var dataPackageDescription = currentQuote.quote;
-                    request.data.properties.description = dataPackageDescription;
 
-                    try {
-                        request.data.setWebLink(new Windows.Foundation.Uri(currentQuote.actions.link));
-                        WinJS.log && WinJS.log("", "sample", "error");
-                    } catch (ex) {
-                        WinJS.log && WinJS.log("Exception occured: the uri provided " + dataPackageWebLink + " is not well formatted.", "sample", "error");
-                    }
-                } else {
-                    request.failWithDisplayText(SdkSample.missingTitleError);
-                }
+                request.data.properties.title = dataPackageTitle;
+                request.data.properties.description = quote;
+
+                //try {
+                //    //request.data.setWebLink(new Windows.Foundation.Uri(link));
+                //    WinJS.log && WinJS.log("", "sample", "error");
+                //} catch (ex) {
+                //    WinJS.log && WinJS.log("Exception occured: the uri provided " + dataPackageWebLink + " is not well formatted.", "sample", "error");
+                //}
             }
         }
     });
