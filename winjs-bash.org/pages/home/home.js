@@ -11,6 +11,9 @@
         // populates the page elements with the app's data.
         ready: function (element, options) {
 
+            var dataTransferManager = Windows.ApplicationModel.DataTransfer.DataTransferManager.getForCurrentView();
+            dataTransferManager.addEventListener("datarequested", dataRequested);
+
             function BashQuoteAction(actions) {
                 var $actions = actions;
 
@@ -80,8 +83,7 @@
                 var self = this,
                     loadingNext = false;
                 this.quotelist = ko.observableArray();
-
-
+                
                 this.Index = ko.observable(0);
 
                 this.nextQuote = function () {
@@ -90,8 +92,7 @@
                     index++;
                     self.Index(index);
                 }
-
-
+                
                 function loadQuote() {
                     loadingNext = true;
                     $.ajax({
@@ -154,7 +155,7 @@
             
             // Command button functions
             function _ABCShare() {
-                debugger;
+                Windows.ApplicationModel.DataTransfer.DataTransferManager.showShareUI();
             }
 
             function _ABCShowInBrowser() {
@@ -207,6 +208,42 @@
 
             //// Show the message dialog
             //msg.showAsync();
+
+
+
+            function dataRequested(e) {
+                var request = e.request;
+
+                // Title is required
+                var dataPackageTitle = "test";
+                if ((typeof dataPackageTitle === "string") && (dataPackageTitle !== "")) {
+                    var dataPackageWebLink = "http://bash.org";
+                    if ((typeof dataPackageWebLink === "string") && (dataPackageWebLink !== "")) {
+                        request.data.properties.title = dataPackageTitle;
+
+                        // The description is optional.
+                        var dataPackageDescription = "This is a test Link";
+                        if ((typeof dataPackageDescription === "string") && (dataPackageDescription !== "")) {
+                            request.data.properties.description = dataPackageDescription;
+                        }
+
+                        try {
+                            request.data.setWebLink(new Windows.Foundation.Uri("http://bash.org"));
+                            WinJS.log && WinJS.log("", "sample", "error");
+                        } catch (ex) {
+                            WinJS.log && WinJS.log("Exception occured: the uri provided " + dataPackageWebLink + " is not well formatted.", "sample", "error");
+                        }
+                    } else {
+                        request.failWithDisplayText("Enter the text you would like to share and try again.");
+                    }
+                } else {
+                    request.failWithDisplayText(SdkSample.missingTitleError);
+                }
+            }
         }
     });
+
+    function showShareUI() {
+        Windows.ApplicationModel.DataTransfer.DataTransferManager.showShareUI();
+    }
 })();
