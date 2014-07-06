@@ -71,6 +71,7 @@
     <Content Include="pages\home\home.js" />
     <Content Include="default.html" />
     <Content Include="pages\home\test.html" />
+    <Content Include="pages\home\test.js" />
     <Content Include="TestData\bash.org--random.html" />
   </ItemGroup>
   <ItemGroup>

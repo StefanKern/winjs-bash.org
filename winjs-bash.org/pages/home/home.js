@@ -28,7 +28,7 @@
                 this.link = "http://bash.org/" + _quoteNumber.attr("href");
 
                 this.showInBorwser = function () {
-                    var url = new Windows.Foundation.Uri(self.link());
+                    var url = new Windows.Foundation.Uri(self.link);
                     Windows.System.Launcher.launchUriAsync(url);
                 }
 
@@ -153,50 +153,69 @@
                 this.nextQuoteNotAvalible = ko.computed(function () {
                     return !self.nextQuoteAvalible();
                 });
+
+
+                // Command button functions
+                this.ABCShare  = function(){
+                    Windows.ApplicationModel.DataTransfer.DataTransferManager.showShareUI();
+                }
+
+                this.ABCShowInBrowser  = function() {
+                    self.currentQoute().actions.showInBorwser();
+                }
+
+                this.ABCUpvote  = function() {
+                    self.currentQoute().actions.upvote();
+                }
+
+                this.ABCdownvote  = function() {
+                    self.currentQoute().actions.downvote();
+                }
+
+                this.ABCReport  = function() {
+                    self.currentQoute().actions.report();
+                }
             }
 
             var vm = new ViewModel();
 
 
-            document.getElementById("ABCShare")
-                .addEventListener("click", _ABCShare, false);
-            document.getElementById("ABCShowInBrowser")
-                .addEventListener("click", _ABCShowInBrowser, false);
-            document.getElementById("ABCUpvote")
-                .addEventListener("click", _ABCUpvote, false);
-            document.getElementById("ABCdownvote")
-                .addEventListener("click", _ABCdownvote, false);
-            document.getElementById("ABCReport")
-                .addEventListener("click", _ABCReport, false);
+            //document.getElementById("ABCShare")
+            //    .addEventListener("click", _ABCShare, false);
+            //document.getElementById("ABCShowInBrowser")
+            //    .addEventListener("click", _ABCShowInBrowser, false);
+            //document.getElementById("ABCUpvote")
+            //    .addEventListener("click", _ABCUpvote, false);
+            //document.getElementById("ABCdownvote")
+            //    .addEventListener("click", _ABCdownvote, false);
+            //document.getElementById("ABCReport")
+            //    .addEventListener("click", _ABCReport, false);
             
-            // Command button functions
-            function _ABCShare() {
-                Windows.ApplicationModel.DataTransfer.DataTransferManager.showShareUI();
-            }
+            //// Command button functions
+            //function _ABCShare() {
+            //    Windows.ApplicationModel.DataTransfer.DataTransferManager.showShareUI();
+            //}
 
-            function _ABCShowInBrowser() {
-                vm.currentQoute().actions.showInBorwser();
-            }
+            //function _ABCShowInBrowser() {
+            //    vm.currentQoute().actions.showInBorwser();
+            //}
 
-            function _ABCUpvote() {
-                vm.currentQoute().actions.upvote();
-            }
+            //function _ABCUpvote() {
+            //    vm.currentQoute().actions.upvote();
+            //}
 
-            function _ABCdownvote() {
-                vm.currentQoute().actions.downvote();
-            }
+            //function _ABCdownvote() {
+            //    vm.currentQoute().actions.downvote();
+            //}
 
-            function _ABCReport() {
-                vm.currentQoute().actions.report();
-            }
+            //function _ABCReport() {
+            //    vm.currentQoute().actions.report();
+            //}
 
 
 
             WinJS.UI.processAll(element).then(function () {
                 ko.applyBindings(vm, element);
-
-
-
             });
 
 

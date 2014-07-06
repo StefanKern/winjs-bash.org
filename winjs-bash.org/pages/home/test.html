@@ -1,9 +1,33 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Test  html</title>
+    <script src="//Microsoft.Phone.WinJS.2.1/js/base.js"></script>
+    <script src="//Microsoft.Phone.WinJS.2.1/js/ui.js"></script>
+
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/knockout-3.1.0.js"></script>
+
+    <link href="../../css/default.css" rel="stylesheet" />
+    <link href="../../pages/home/home.css" rel="stylesheet" />
+    <script src="../../pages/home/test.js"></script>
 </head>
 <body>
     <div>Content goes here.</div>
+    <p data-bind="text: test"></p>
+    <button data-bind="click: setBinding">Switch Commandbar click binding</button>
+    <div data-bind="with: binding">
+        <button data-bind="click: comandBarBinding">
+            Test Binding
+        </button>
+    </div>
+
+    <div data-win-control="WinJS.UI.AppBar"
+         data-bind="with: binding">
+        <button data-win-control="WinJS.UI.AppBarCommand"
+                id="comandBarBinding"
+                data-bind="click: comandBarBinding"
+                data-win-options="{icon:'add', label:'add'}"></button>
+    </div>
 </body>
 </html>
