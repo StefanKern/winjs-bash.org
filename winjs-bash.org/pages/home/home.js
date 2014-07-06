@@ -16,12 +16,15 @@
 
             function BashQuoteAction(actions) {
                 var $actions = actions;
+                var self = this;
 
                 var _quoteNumber = $actions.find(":nth-child(1):first")
                 this.quoteNumber = _quoteNumber.text();
 
+                this.link = "http://bash.org/" + _quoteNumber.attr("href");
+
                 this.showInBorwser = function () {
-                    var url = new Windows.Foundation.Uri("http://bash.org/" + _quoteNumber.attr("href"));
+                    var url = new Windows.Foundation.Uri(self.link());
                     Windows.System.Launcher.launchUriAsync(url);
                 }
 
@@ -214,27 +217,24 @@
             function dataRequested(e) {
                 var request = e.request;
 
+                var currentQuote = vm.currentQoute();
+
                 // Title is required
-                var dataPackageTitle = "test";
+                var dataPackageTitle = "bash.org Quote " + currentQuote.actions.quoteNumber;
                 if ((typeof dataPackageTitle === "string") && (dataPackageTitle !== "")) {
-                    var dataPackageWebLink = "http://bash.org";
-                    if ((typeof dataPackageWebLink === "string") && (dataPackageWebLink !== "")) {
-                        request.data.properties.title = dataPackageTitle;
+                    var dataPackageWebLink = "bash.org Quote #"+ currentQuote.actions.quoteNumber;
 
-                        // The description is optional.
-                        var dataPackageDescription = "This is a test Link";
-                        if ((typeof dataPackageDescription === "string") && (dataPackageDescription !== "")) {
-                            request.data.properties.description = dataPackageDescription;
-                        }
+                    request.data.properties.title = dataPackageTitle;
 
-                        try {
-                            request.data.setWebLink(new Windows.Foundation.Uri("http://bash.org"));
-                            WinJS.log && WinJS.log("", "sample", "error");
-                        } catch (ex) {
-                            WinJS.log && WinJS.log("Exception occured: the uri provided " + dataPackageWebLink + " is not well formatted.", "sample", "error");
-                        }
-                    } else {
-                        request.failWithDisplayText("Enter the text you would like to share and try again.");
+                    // The description is optional.
+                    var dataPackageDescription = currentQuote.quote;
+                    request.data.properties.description = dataPackageDescription;
+
+                    try {
+                        request.data.setWebLink(new Windows.Foundation.Uri(currentQuote.actions.link));
+                        WinJS.log && WinJS.log("", "sample", "error");
+                    } catch (ex) {
+                        WinJS.log && WinJS.log("Exception occured: the uri provided " + dataPackageWebLink + " is not well formatted.", "sample", "error");
                     }
                 } else {
                     request.failWithDisplayText(SdkSample.missingTitleError);
