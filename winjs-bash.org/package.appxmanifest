@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="1d31229c-f58b-4cc0-afc8-f5c51966c319" Version="1.0.0.0" Publisher="CN=Dromar" />
-  <mp:PhoneIdentity PhoneProductId="1d31229c-f58b-4cc0-afc8-f5c51966c319" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="4580StefanKern.bash.org" Version="1.1.0.1" Publisher="CN=E4D43427-1542-4892-A2CC-873F36FFF607" />
+  <mp:PhoneIdentity PhoneProductId="da27d908-f785-4685-bffb-5f106e6e8caf" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>App2</DisplayName>
-    <PublisherDisplayName>Dromar</PublisherDisplayName>
+    <DisplayName>bash.org</DisplayName>
+    <PublisherDisplayName>Stefan Kern</PublisherDisplayName>
     <Logo>images\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
@@ -16,7 +16,7 @@
   </Resources>
   <Applications>
     <Application Id="App" StartPage="default.html">
-      <m3:VisualElements DisplayName="winjs-bash.org" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png" Description="A mobile version of bash.org for Windows Phone" ForegroundText="light" BackgroundColor="transparent">
+      <m3:VisualElements DisplayName="bash.org" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png" Description="A mobile version of bash.org for Windows Phone" ForegroundText="light" BackgroundColor="transparent">
         <m3:DefaultTile Wide310x150Logo="images\Wide310x150Logo.png" Square71x71Logo="images\Square71x71Logo.png">
         </m3:DefaultTile>
         <m3:SplashScreen Image="images\SplashScreen.png" />

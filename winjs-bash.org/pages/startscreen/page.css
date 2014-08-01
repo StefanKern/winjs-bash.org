@@ -1,0 +1,55 @@
+﻿section.startscreen p {
+    font-size: x-large;
+}
+section.startscreen p a{
+    color: #c08000;
+    font-family: courier new, lucida console, fixed !important;
+    text-decoration: none;
+}
+
+header h1 {
+    font-family: courier new, lucida console, fixed !important;
+}
+
+.container {
+    display: inline-block;
+    position: relative;
+    width: 40%;
+    float: left;
+    margin: 10px;
+    max-width: 150px;
+}
+
+.container:after {
+    content:'';
+    display: block;
+    margin-top: 75%;
+}
+.element {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: silver; 
+    text-align: center;
+    margin: 0;
+}
+
+
+.ratemyapp, .feedback {
+    font-family:  courier new, lucida console, fixed !important;
+    /*margin: 1em;
+    border: 2px solid white;
+    padding: 0.5em;*/
+}
+
+    .ratemyapp .icon:before {
+       font-family:  "Segoe UI Command";
+        content: "\e0B4";
+    }
+
+    .feedback .icon:before {
+       font-family:  "Segoe UI Command";
+        content: "\e0A5";
+    }

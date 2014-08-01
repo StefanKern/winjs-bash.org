@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PointerInput</title>
+    <link href="gestures.css" rel="stylesheet" />
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <link href="/css/ui-themed.css" rel="stylesheet" />
+    <link href="/css/default.css" rel="stylesheet" />
+
+    <style>
+        body {
+            overflow-y: auto;
+            touch-action: pan-y;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $("body").swipe({
+                swipe: function (event, direction, distance, duration, fingerCount) {
+                    $("#lastswype").text(direction);
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="TargetContainer" id="targetContainer">
+        <h1>Hello world</h1>
+        <h2>Last swype was: <span id="lastswype"></span></h2>
+        <div id="longText">
+            <p>
+                Lorem ipsum dolor sit amet, usu no illum petentium. Deterruisset definitiones reprehendunt eu mei. Cum falli volutpat at. Diceret splendide sed in. Sint noster deseruisse quo in. Vix nihil iisque dissentias at, harum facilis eu vel.
+
+                Pro eu dico decore consul. Ea posse incorrupte eam, ea affert verear dissentiunt eos. Mentitum intellegam at sit, stet repudiandae vel eu, sea error harum postea ut. Quod habeo tibique est an, vivendo salutatus pri an. Per tamquam tacimates in. Ut odio autem semper sed, cum ne quod aeterno praesent.
+
+                Ut oblique adversarium vis, et commodo discere eloquentiam eum, impetus tritani detracto ius ea. Ne sea expetenda deterruisset. Ea has populo ornatus feugait, assum voluptua interesset cum et. Mel ad aliquip periculis, ad eam vide altera splendide, alienum explicari ut mel. Qui laoreet tibique expetenda eu.
+
+                Mel nullam iuvaret ex, vix te tollit nullam. Illud quaestio reformidans cum et, et alia melius eam. Cum summo malorum ex. An decore nonumy appareat pro, alterum elaboraret concludaturque nec an. Ut vim aperiam oblique delectus. Duo et cibo labitur definiebas, ne affert rationibus sed, fuisset invenire vis ne.
+
+                Ad discere dolores accusata vix, aperiam vivendo cu vel, quo id nominavi dignissim temporibus. Nec summo democritum in, porro nominavi appareat nec cu. Similique ullamcorper vim ad, at epicuri phaedrum pri, est no alii facilis definitionem. Possim numquam et duo, quo an partem urbanitas, eu efficiendi scripserit vim. Ius putant dolores at, ut assum delenit definiebas sed. Tamquam fabellas sed at, ad ius quem affert nominavi, id elit oratio accusamus eam. Quando nostrum platonem vim ex, per ut tation nonumy assueverit.
+
+                Lorem ipsum dolor sit amet, usu no illum petentium. Deterruisset definitiones reprehendunt eu mei. Cum falli volutpat at. Diceret splendide sed in. Sint noster deseruisse quo in. Vix nihil iisque dissentias at, harum facilis eu vel.
+
+                Pro eu dico decore consul. Ea posse incorrupte eam, ea affert verear dissentiunt eos. Mentitum intellegam at sit, stet repudiandae vel eu, sea error harum postea ut. Quod habeo tibique est an, vivendo salutatus pri an. Per tamquam tacimates in. Ut odio autem semper sed, cum ne quod aeterno praesent.
+
+                Ut oblique adversarium vis, et commodo discere eloquentiam eum, impetus tritani detracto ius ea. Ne sea expetenda deterruisset. Ea has populo ornatus feugait, assum voluptua interesset cum et. Mel ad aliquip periculis, ad eam vide altera splendide, alienum explicari ut mel. Qui laoreet tibique expetenda eu.
+
+                Mel nullam iuvaret ex, vix te tollit nullam. Illud quaestio reformidans cum et, et alia melius eam. Cum summo malorum ex. An decore nonumy appareat pro, alterum elaboraret concludaturque nec an. Ut vim aperiam oblique delectus. Duo et cibo labitur definiebas, ne affert rationibus sed, fuisset invenire vis ne.
+
+                Ad discere dolores accusata vix, aperiam vivendo cu vel, quo id nominavi dignissim temporibus. Nec summo democritum in, porro nominavi appareat nec cu. Similique ullamcorper vim ad, at epicuri phaedrum pri, est no alii facilis definitionem. Possim numquam et duo, quo an partem urbanitas, eu efficiendi scripserit vim. Ius putant dolores at, ut assum delenit definiebas sed. Tamquam fabellas sed at, ad ius quem affert nominavi, id elit oratio accusamus eam. Quando nostrum platonem vim ex, per ut tation nonumy assueverit.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

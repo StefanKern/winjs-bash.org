@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>bash.org</title>
+
+    <script src="//Microsoft.Phone.WinJS.2.1/js/base.js"></script>
+    <script src="//Microsoft.Phone.WinJS.2.1/js/ui.js"></script>
+
+    <link href="page.css" rel="stylesheet" />
+
+    <script src="page.js"></script>
+</head>
+<body>
+    <!-- Simple template for the ListView instantiation  -->
+
+    <header aria-label="Header content" role="banner">
+        <h1 class="titlearea win-type-ellipsis">
+            <span class="pagetitle">About</span>
+        </h1>
+    </header>
+
+    <section class="aboutpage">
+        
+        <p>This app was made to access bash.org on Windows phone in a convortable way and to try out winjs. 
+        </p>
+        <p>The whole code can be found on <a href="https://github.com/StefanKern/winjs-bash.org/">Github</a> (https://github.com/StefanKern/winjs-bash.org/).</p>
+        <p>I don't really knwo what else to wirte and know nobody will ever read this. If you are
+        reading this and you are not a Microsof app validator (do you have to read this all?). Wirte me a mail.
+        You can also check out my website: <a href="http://www.stefankern.me/">stefankern.me/</a></p>
+
+
+        <div id="appBarAbout"
+             data-win-control="WinJS.UI.AppBar"
+             data-win-options="">
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'ratemyapp',label:'Rate My App',icon:'favorite',
+                                    section:'global',tooltip:'Rate this app in the Marketplace'}"></button>
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-win-options="{id:'feedback',label:'Feedback',icon:'like',
+                                    section:'global',tooltip:'Send me feedback'}"></button>
+        </div>
+    </section>
+</body>
+</html>

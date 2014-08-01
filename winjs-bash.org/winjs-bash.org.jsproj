@@ -43,6 +43,8 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
   <PropertyGroup>
     <DefaultLanguage>en-US</DefaultLanguage>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
@@ -62,16 +64,25 @@
     <Content Include="js\default.js" />
     <Content Include="js\Interactivity.1.1.js" />
     <Content Include="js\jquery-1.11.1.min.js" />
+    <Content Include="js\jquery.touchSwipe.js" />
+    <Content Include="js\jquery.touchSwipe.min.js" />
     <Content Include="js\knockout-3.1.0.js" />
     <Content Include="js\navigator.js" />
-    <Content Include="js\require-2.1.14.js" />
-    <Content Include="pages\home\Appbardemo.html" />
-    <Content Include="pages\home\home.css" />
-    <Content Include="pages\home\home.html" />
-    <Content Include="pages\home\home.js" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="pages\bashquotes\home.css" />
+    <Content Include="pages\bashquotes\home.html" />
+    <Content Include="pages\bashquotes\home.js" />
+    <Content Include="pages\gesturesSample\default.html" />
     <Content Include="default.html" />
-    <Content Include="pages\home\test.html" />
-    <Content Include="pages\home\test.js" />
+    <Content Include="pages\gesturesSample\gestures.css" />
+    <Content Include="pages\gesturesSample\gestures.html" />
+    <Content Include="pages\gesturesSample\gestures.js" />
+    <Content Include="pages\startscreen\page.css" />
+    <Content Include="pages\startscreen\page.html" />
+    <Content Include="pages\startscreen\page.js" />
+    <Content Include="pages\aboutpage\page.css" />
+    <Content Include="pages\aboutpage\page.html" />
+    <Content Include="pages\aboutpage\page.js" />
     <Content Include="TestData\bash.org--random.html" />
   </ItemGroup>
   <ItemGroup>

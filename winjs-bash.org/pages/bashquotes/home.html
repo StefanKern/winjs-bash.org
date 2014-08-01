@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <script src="//Microsoft.Phone.WinJS.2.1/js/base.js"></script>
+    <script src="//Microsoft.Phone.WinJS.2.1/js/ui.js"></script>
+    
+    <link href="../../css/default.css" rel="stylesheet" />
+    <link href="home.css" rel="stylesheet" />    
+    <script src="home.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="fragment homepage">
+        <header aria-label="Header content" role="banner">
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Bash.org</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main"><!--data-bind="click : nextQuote">-->
+            <div>
+                <div data-bind="visible: nextQuoteAvalible, with: currentQoute">
+                    <p data-bind="html: quote" class="quote" id="quote"></p>
+                    <p data-bind="with: actions" class="comands">
+                        <span class="votesicon"></span>
+                        <span data-bind="text: votes" class="votes"></span>
+                    </p>
+                </div>
+
+                <progress class="win-ring" data-bind="visible: nextQuoteNotAvalible" />
+            </div>
+        </section>
+    </div>
+
+    <div data-bind="click: window.nobubble, clickbubble: false">
+        <!--<div data-win-control="WinJS.UI.AppBar"
+        data-win-options="{closedDisplayMode:'minimal'}"
+        data-bind="with: caption, click: window.nobubble, clickbubble: false">-->
+        <div id="appBar"
+             data-win-control="WinJS.UI.AppBar"
+             data-win-options="">
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-bind="click : ABCShare"
+                    data-win-options="{id:'ABCShare',label:'Share',icon:'reshare',
+                                    section:'global',tooltip:'Share it with your friends'}"></button>
+
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-bind="click : ABCShowInBrowser"
+                    data-win-options="{id:'ABCShowInBrowser',label:'Show in Browser',icon:'link',
+                                    section:'selection',tooltip:'Show it in the in Browser'}"></button>
+
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-bind="click : ABCUpvote"
+                    data-win-options="{id:'ABCUpvote',label:'Upvote',icon:'add',
+                                    section:'global',tooltip:'Upvote this quote'}"></button>
+
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-bind="click : ABCdownvote"
+                    data-win-options="{id:'ABCdownvote',label:'Downvote',icon:'remove',
+                                    section:'global',tooltip:'Downvote this quotm'}"></button>
+
+            <button data-win-control="WinJS.UI.AppBarCommand"
+                    data-bind="click : ABCReport"
+                    data-win-options="{id:'ABCReport',label:'Report',icon:'flag',
+                                    section:'global',tooltip:'Report this quote'}"></button>
+        </div>
+    </div>
+
+</body>
+</html>

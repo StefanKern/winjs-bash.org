@@ -19,6 +19,9 @@
                 // Restore application state here.
             }
 
+            // problem with appbar, so we start at homescreen all the time
+            //WinJS.Navigation.navigate("pages/startscreen/page.html");
+
             nav.history = app.sessionState.history || {};
             nav.history.current.initialPlaceholder = true;
 

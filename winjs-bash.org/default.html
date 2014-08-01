@@ -15,11 +15,36 @@
     <link href="/css/default.css" rel="stylesheet" />
     <script src="/js/default.js"></script>
     <script src="/js/navigator.js"></script>
+
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="../../js/knockout-3.1.0.js"></script>
 </head>
-<body class="phone">
-    <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/home/home.html'}"></div>
-    <!-- <div id="appbar" data-win-control="WinJS.UI.AppBar">
-        <button data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmd', label:'Command', icon:'placeholder'}" type="button"></button>
-    </div> -->
+<body class="phone">    
+    <script>
+        (function () {
+            function linkClickEventHandler(eventInfo) {
+                eventInfo.preventDefault();
+
+                var url = eventInfo.target.href;
+                console.log(url);
+
+                var linkAndOptions = url.split("#")
+                var link = linkAndOptions[0];
+                var options = (linkAndOptions.length > 1) ? linkAndOptions.slice(1).join() : "";
+
+                WinJS.Navigation.navigate(link, options);
+            }
+
+            $('body').on('click', 'a', linkClickEventHandler);
+
+            //WinJS.Utilities.query("a").listen("click", linkClickEventHandler, false);
+        })();
+    </script>
+    <!--<div id="contenthost" data-win-control="Application.PageControlNavigator"
+         data-win-options="{home: '/pages/gesturesSample/gestures.html'}"></div>-->
+    <div id="contenthost" data-win-control="Application.PageControlNavigator"
+         data-win-options="{home: '/pages/startscreen/page.html'}"></div>
+
 </body>
 </html>
