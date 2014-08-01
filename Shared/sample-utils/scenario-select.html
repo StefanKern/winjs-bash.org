@@ -1,0 +1,119 @@
+﻿<!--
+Copyright (c) Microsoft Corporation. All rights reserved
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/sample-utils/scenario-select.css" />
+    <style>
+        /* Template for the items in the ListViews in this sample */
+        .smallListIconTextItem {
+            width: 100%;
+            height: 70px;
+            padding: 5px;
+            overflow: hidden;
+        }
+
+            .smallListIconTextItem img.smallListIconTextItem-Image {
+                width: 60px;
+                height: 60px;
+                margin: 5px;
+                float: left;
+                margin-right: 20px;
+            }
+
+            .smallListIconTextItem .smallListIconTextItem-Detail {
+                margin: 5px;
+            }
+
+        .listLayoutTopHeaderTemplateRoot, .gridLayoutLeftHeaderTemplateRoot {
+            font-size: larger;
+            margin-left: 16px;
+        }
+
+        /* CSS applied to the ListViews in this sample */
+        #listView {
+            height: 280px;
+        }
+    </style>
+
+    <script>
+        var myData = new WinJS.Binding.List([
+        { title: "Banana Blast", text: "Low-fat frozen yogurt", picture: "/images/fruits/60Banana.png" },
+        { title: "Lavish Lemon Ice", text: "Sorbet", picture: "/images/fruits/60Lemon.png" },
+        { title: "Marvelous Mint", text: "Gelato", picture: "/images/fruits/60Mint.png" },
+        { title: "Creamy Orange", text: "Sorbet", picture: "/images/fruits/60Orange.png" },
+        { title: "Succulent Strawberry", text: "Sorbet", picture: "/images/fruits/60Strawberry.png" },
+        { title: "Very Vanilla", text: "Ice Cream", picture: "/images/fruits/60Vanilla.png" },
+        { title: "Banana Blast", text: "Low-fat frozen yogurt", picture: "/images/fruits/60Banana.png" },
+        { title: "Lavish Lemon Ice", text: "Sorbet", picture: "/images/fruits/60Lemon.png" },
+        { title: "Marvelous Mint", text: "Gelato", picture: "/images/fruits/60Mint.png" },
+        { title: "Creamy Orange", text: "Sorbet", picture: "/images/fruits/60Orange.png" },
+        { title: "Succulent Strawberry", text: "Sorbet", picture: "/images/fruits/60Strawberry.png" },
+        { title: "Very Vanilla", text: "Ice Cream", picture: "/images/fruits/60Vanilla.png" },
+        { title: "Banana Blast", text: "Low-fat frozen yogurt", picture: "/images/fruits/60Banana.png" },
+        { title: "Lavish Lemon Ice", text: "Sorbet", picture: "/images/fruits/60Lemon.png" },
+        { title: "Marvelous Mint", text: "Gelato", picture: "/images/fruits/60Mint.png" },
+        { title: "Creamy Orange", text: "Sorbet", picture: "/images/fruits/60Orange.png" },
+        { title: "Succulent Strawberry", text: "Sorbet", picture: "/images/fruits/60Strawberry.png" },
+        { title: "Very Vanilla", text: "Ice Cream", picture: "/images/fruits/60Vanilla.png" },
+        { title: "Banana Blast", text: "Low-fat frozen yogurt", picture: "/images/fruits/60Banana.png" },
+        { title: "Lavish Lemon Ice", text: "Sorbet", picture: "/images/fruits/60Lemon.png" },
+        { title: "Marvelous Mint", text: "Gelato", picture: "/images/fruits/60Mint.png" },
+        { title: "Creamy Orange", text: "Sorbet", picture: "/images/fruits/60Orange.png" },
+        { title: "Succulent Strawberry", text: "Sorbet", picture: "/images/fruits/60Strawberry.png" },
+        { title: "Very Vanilla", text: "Ice Cream", picture: "/images/fruits/60Vanilla.png" },
+        { title: "Banana Blast", text: "Low-fat frozen yogurt", picture: "/images/fruits/60Banana.png" },
+        { title: "Lavish Lemon Ice", text: "Sorbet", picture: "/images/fruits/60Lemon.png" },
+        { title: "Marvelous Mint", text: "Gelato", picture: "/images/fruits/60Mint.png" },
+        { title: "Creamy Orange", text: "Sorbet", picture: "/images/fruits/60Orange.png" },
+        { title: "Succulent Strawberry", text: "Sorbet", picture: "/images/fruits/60Strawberry.png" },
+        { title: "Very Vanilla", text: "Ice Cream", picture: "/images/fruits/60Vanilla.png" },
+        { title: "Banana Blast", text: "Low-fat frozen yogurt", picture: "/images/fruits/60Banana.png" },
+        { title: "Lavish Lemon Ice", text: "Sorbet", picture: "/images/fruits/60Lemon.png" },
+        { title: "Marvelous Mint", text: "Gelato", picture: "/images/fruits/60Mint.png" },
+        { title: "Creamy Orange", text: "Sorbet", picture: "/images/fruits/60Orange.png" },
+        { title: "Succulent Strawberry", text: "Sorbet", picture: "/images/fruits/60Strawberry.png" },
+        { title: "Very Vanilla", text: "Ice Cream", picture: "/images/fruits/60Vanilla.png" }
+        ]);
+
+        var grouped = myData.createGrouped(function (item) {
+            return item.title.toUpperCase().charAt(0);
+        }, function (item) {
+            return {
+                title: item.title.toUpperCase().charAt(0)
+            };
+        }, function (left, right) {
+            return left.charCodeAt(0) - right.charCodeAt(0);
+        });
+
+        WinJS.Namespace.define("Sample.ListView", {
+            data: grouped
+        });
+        WinJS.UI.processAll();
+    </script>
+
+</head>
+<body>
+    <!-- WinJS.Binding.Template for #scenarioControl -->
+    <div id="scenarioItem" data-win-control="WinJS.Binding.Template" style="display: none;">
+        <div class="scenarioItem" data-win-bind="title: title">
+            <span data-win-bind="innerText: scenarioNumber"></span>) <span data-win-bind="innerText: title"></span>
+        </div>
+    </div>
+
+    <div id="scenarioControl" class="win-selectionstylefilled"
+         data-win-control="WinJS.UI.ListView"
+         data-win-options="{
+            itemDataSource: SdkSample.scenarios.dataSource,
+            itemTemplate: select('#scenarioItem'),
+            selectionMode: WinJS.UI.SelectionMode.single,
+            tapBehavior: WinJS.UI.TapBehavior.directSelect,
+            swipeBehavior: WinJS.UI.SwipeBehavior.none,
+            layout: { type: WinJS.UI.ListLayout }
+         }">
+    </div>
+</body>
+</html>
