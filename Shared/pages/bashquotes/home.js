@@ -108,20 +108,35 @@
         function loadQuote() {
             loadingNext = true;
 
+            var startTime = Date.now();
+            console.log((Date.now() - startTime) + ": Start Loading");
+
             bashSection = bashSection || "top";
+
+            var appbar = $("#appBar")[0];
+            if (appbar) {
+                appbar.winControl.hide();
+                appbar.winControl.disabled = true;
+            }
 
             $.ajax({
                 //url: "../../TestData/bash.org--random.html",
                 url: "http://bash.org/?" + bashSection,
                 cache: false,
                 success: function (data) {
+                    self.loadingText("Generating viewmodel");
+                    console.log((Date.now() - startTime) + ": Finding elements");
 
                     var $data = $(window.toStaticHTML(data));
                     var $quote = $data.find(".qt");
 
+                    console.log((Date.now() - startTime) + ": Generating viewmodel");
                     $quote.each(function () {
                         self.quotelist.push(new BashQuote(this));
                     });
+
+                    console.log((Date.now() - startTime) + ": Finished");
+                    self.loadingText("Finished");
                 },
                 error: function () {
                     var msg = new Windows.UI.Popups.MessageDialog(
@@ -132,9 +147,18 @@
                 },
                 complete: function () {
                     loadingNext = false;
+
+                    self.loadingText("Loading quotes form bash.org...");
+
+                    if (appbar) {
+                        appbar.winControl.show();
+                        appbar.winControl.disabled = false;
+                    }
                 }
             });
         }
+
+        this.loadingText = ko.observable("Loading quotes form bash.org...");
 
         this.currentQoute = ko.computed(function () {
             var index = self.Index();
@@ -214,7 +238,7 @@
             ko.cleanNode(_element);
             vm = new ViewModel(options);;
             ko.applyBindings(vm, _element);
-            
+
 
             $("body").swipe({
                 swipe: function (event, direction, distance, duration, fingerCount) {
@@ -224,11 +248,16 @@
                     var index = vm.Index();
                     index++;
                     vm.Index(index);
+
+                    $('body').scrollTop(0);
                 },
                 swipeRight: function () {
                     var index = vm.Index();
                     index--;
-                    vm.Index(index);
+                    if (index >= 0)
+                        vm.Index(index);
+
+                    $('body').scrollTop(0);
                 }
             });
         }

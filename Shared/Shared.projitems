@@ -5,6 +5,7 @@
     <HasSharedItems>true</HasSharedItems>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)css\default.css" />
     <Content Include="$(MSBuildThisFileDirectory)html\create-appbar.html" />
     <Content Include="$(MSBuildThisFileDirectory)html\custom-color.html" />
     <Content Include="$(MSBuildThisFileDirectory)html\custom-icons.html" />
@@ -17,6 +18,7 @@
     <Content Include="$(MSBuildThisFileDirectory)images\StoreLogo.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\Wide310x150Logo.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)js\jquery-1.11.1.min.js" />
+    <Content Include="$(MSBuildThisFileDirectory)js\jquery-2.1.1.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\jquery.touchSwipe.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\jquery.touchSwipe.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\knockout-3.1.0.js" />
@@ -53,8 +55,5 @@
     <PRIResource Include="$(MSBuildThisFileDirectory)strings\de-DE\resources.resjson" />
     <PRIResource Include="$(MSBuildThisFileDirectory)strings\en-US\resources.resjson" />
     <PRIResource Include="$(MSBuildThisFileDirectory)strings\fr-FR\resources.resjson" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)css\" />
   </ItemGroup>
 </Project>

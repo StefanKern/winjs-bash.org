@@ -1,11 +1,15 @@
 ﻿section.startscreen p {
     font-size: x-large;
 }
+
 section.startscreen p a{
-    color: #c08000;
+    color: white;
     font-family: courier new, lucida console, fixed !important;
     text-decoration: none;
+    font-weight:bold;
 }
+
+
 
 header h1 {
     font-family: courier new, lucida console, fixed !important;
@@ -31,9 +35,10 @@ header h1 {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: silver; 
+    /*background-color: silver;*/ 
     text-align: center;
     margin: 0;
+    border: 3px solid white;
 }
 
 

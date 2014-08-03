@@ -1,0 +1,4 @@
+MainPackage=C:\GIT\winjs-bash.org\WindowsPhone\bin\Release\Controls_AppBar.WindowsPhone_1.1.0.2_Bundle\Controls_AppBar.WindowsPhone_1.1.0.2_AnyCPU.appx
+ResourcePack=C:\GIT\winjs-bash.org\WindowsPhone\bin\Release\Controls_AppBar.WindowsPhone_1.1.0.2_Bundle\Controls_AppBar.WindowsPhone_1.1.0.2_language-de.appx
+ResourcePack=C:\GIT\winjs-bash.org\WindowsPhone\bin\Release\Controls_AppBar.WindowsPhone_1.1.0.2_Bundle\Controls_AppBar.WindowsPhone_1.1.0.2_language-fr.appx
+ResourcePack=C:\GIT\winjs-bash.org\WindowsPhone\bin\Release\Controls_AppBar.WindowsPhone_1.1.0.2_Bundle\Controls_AppBar.WindowsPhone_1.1.0.2_scale-100.appx

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="DA4C9B47-2164-4034-A20E-5619633DD448" Version="1.0.0.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US" />
-  <mp:PhoneIdentity PhoneProductId="DA4C9B47-2164-4034-A20E-5619633DD448" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="4580StefanKern.bash.org" Version="1.1.0.2" Publisher="CN=E4D43427-1542-4892-A2CC-873F36FFF607" />
+  <mp:PhoneIdentity PhoneProductId="cea6c335-3692-4755-a025-67e5a38ed5e6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>AppBar control JS sample</DisplayName>
-    <PublisherDisplayName>Microsoft Corporation</PublisherDisplayName>
+    <DisplayName>bash.org</DisplayName>
+    <PublisherDisplayName>Stefan Kern</PublisherDisplayName>
     <Description>AppBar control JS Sample</Description>
-    <Logo>images\storeLogo-sdk.png</Logo>
+    <Logo>images\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>
     <OSMinVersion>6.3.1</OSMinVersion>

@@ -16,8 +16,8 @@
     <!-- The content that will be loaded and displayed. -->
     <div class="fragment homepage">
         <header aria-label="Header content" role="banner">
-            <h1 class="titlearea win-type-ellipsis">
-                <span class="pagetitle">Bash.org</span>
+            <h1 class="titlearea win-type-ellipsis" data-bind="with: currentQoute">
+                <span class="pagetitle" data-bind="text: actions.quoteNumber">Bash.org</span>
             </h1>
         </header>
         <section aria-label="Main content" role="main"><!--data-bind="click : nextQuote">-->
@@ -30,7 +30,10 @@
                     </p>
                 </div>
 
-                <progress class="win-ring" data-bind="visible: nextQuoteNotAvalible" />
+                <div class="progress" data-bind="visible: nextQuoteNotAvalible">
+                    <progress class="win-ring" ></progress>
+                    <p data-bind="text: loadingText">Loading</p>
+                </div>
             </div>
         </section>
     </div>
@@ -41,7 +44,7 @@
         data-bind="with: caption, click: window.nobubble, clickbubble: false">-->
         <div id="appBar"
              data-win-control="WinJS.UI.AppBar"
-             data-win-options="">
+             data-win-options="{ disabled : true}">
             <button data-win-control="WinJS.UI.AppBarCommand"
                     data-bind="click : ABCShare"
                     data-win-options="{id:'ABCShare',label:'Share',icon:'reshare',

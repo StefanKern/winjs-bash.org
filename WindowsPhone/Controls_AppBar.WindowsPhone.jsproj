@@ -27,6 +27,8 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
   <PropertyGroup>
     <DefaultLanguage>en-US</DefaultLanguage>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
   </PropertyGroup>
   <Import Project="..\Shared\Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
@@ -47,6 +49,7 @@
     <Content Include="css\ui-themed.css" />
     <Content Include="css\ui-themed.theme-dark.css" />
     <Content Include="css\ui-themed.theme-light.css" />
+    <None Include="Package.StoreAssociation.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\accept.png" />
@@ -56,6 +59,8 @@
     <Content Include="images\custom-icons.css" />
     <Content Include="images\default.css" />
     <Content Include="images\localize-appbar.css" />
+    <Content Include="images\StoreLogo.scale-100.png" />
+    <Content Include="images\StoreLogo.scale-240.png" />
     <Content Include="js\sample-configuration.js" />
     <Content Include="js\appbar-listview.js" />
     <Content Include="js\data.js" />
