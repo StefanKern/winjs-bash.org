@@ -42,6 +42,11 @@
     <Content Include="$(MSBuildThisFileDirectory)sample-utils\header.html" />
     <Content Include="$(MSBuildThisFileDirectory)sample-utils\scenario-select.css" />
     <Content Include="$(MSBuildThisFileDirectory)sample-utils\scenario-select.html" />
+    <Content Include="$(MSBuildThisFileDirectory)Screenshots\loading screen.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Screenshots\quotes vertical.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Screenshots\startscreen.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Screenshots\quotes horizontal.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Screenshots\quotes menu expanded.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)js\create-appbar.js" />

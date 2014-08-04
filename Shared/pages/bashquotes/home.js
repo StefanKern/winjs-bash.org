@@ -87,7 +87,9 @@
 
         this.escapedQuote = htmlDecode(this.quote);
 
-        this.actions = new BashQuoteAction($(element).prev());
+        this.actions = ko.computed(function () {
+            return new BashQuoteAction($(element).prev());
+        }, this, { deferEvaluation: true });
 
     }
 
@@ -130,10 +132,16 @@
                     var $data = $(window.toStaticHTML(data));
                     var $quote = $data.find(".qt");
 
-                    console.log((Date.now() - startTime) + ": Generating viewmodel");
+                    console.log((Date.now() - startTime) + ": Generating Quotes Viewmodel");
+                    var quotes = [];
+
                     $quote.each(function () {
-                        self.quotelist.push(new BashQuote(this));
+                        quotes.push(new BashQuote(this));
                     });
+
+                    console.log((Date.now() - startTime) + ": Pushing into viewmodel");
+
+                    self.quotelist(quotes);
 
                     console.log((Date.now() - startTime) + ": Finished");
                     self.loadingText("Finished");
@@ -171,7 +179,7 @@
 
             return (quoteLength != 0) ?
                 quotes[index] : null;
-        });
+        }, this, { deferEvaluation: true});
 
         this.nextQuoteAvalible = ko.computed(function () {
             var index = self.Index();
@@ -179,11 +187,11 @@
             var quoteLength = quotes.length;
 
             return index != quoteLength;
-        });
+        }, this, { deferEvaluation: true });
 
         this.nextQuoteNotAvalible = ko.computed(function () {
             return !self.nextQuoteAvalible();
-        });
+        }, this, { deferEvaluation: true });
 
 
         // Command button functions
@@ -192,19 +200,19 @@
         }
 
         this.ABCShowInBrowser = function () {
-            self.currentQoute().actions.showInBorwser();
+            self.currentQoute().actions().showInBorwser();
         }
 
         this.ABCUpvote = function () {
-            self.currentQoute().actions.upvote();
+            self.currentQoute().actions().upvote();
         }
 
         this.ABCdownvote = function () {
-            self.currentQoute().actions.downvote();
+            self.currentQoute().actions().downvote();
         }
 
         this.ABCReport = function () {
-            self.currentQoute().actions.report();
+            self.currentQoute().actions().report();
         }
     }
 
@@ -215,10 +223,9 @@
         var currentQuote = vm.currentQoute();
 
         //// Title is required
-        var dataPackageTitle = "bash.org quote " + currentQuote.actions.quoteNumber;
-        //var dataPackageWebLink = "bash.org quote #" + currentQuote.actions.quoteNumber;
+        var dataPackageTitle = "bash.org quote " + currentQuote.actions().quoteNumber;
         var quote = currentQuote.escapedQuote;
-        var link = currentQuote.actions.link
+        var link = currentQuote.actions().link
         request.data.setText(quote + "\n\n" + link);
 
 
