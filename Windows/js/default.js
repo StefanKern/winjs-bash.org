@@ -18,7 +18,7 @@
 
                         // Navigate to either the first scenario or to the last running scenario
                         // before suspension or termination.
-                        var url = SdkSample.scenarios.getAt(0).url;
+                        var url = "/pages/startscreen/page.html";
                         var initialState = {};
                         var navHistory = app.sessionState.navigationHistory;
                         if (navHistory) {

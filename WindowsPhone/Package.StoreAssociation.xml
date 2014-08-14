@@ -192,5 +192,11 @@
   <AccountPackageIdentityNames>
     <MainPackageIdentityName>4580StefanKern.HUGELOL-infinitescrollingfun</MainPackageIdentityName>
   </AccountPackageIdentityNames>
-  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=33c2a54c-e5e7-4f34-84af-f4dd010bddbd" />
+  <PackageInfoList LandingUrl="https://dev.windowsphone.com/AppSubmission/AssociationLanding?windowsProductId=33c2a54c-e5e7-4f34-84af-f4dd010bddbd">
+    <PackageInfo>
+      <OsMinVersion>6.3.0.0</OsMinVersion>
+      <PackageArchitecture>neutral</PackageArchitecture>
+      <PackageMaxArchitectureVersion>1.1.0.1</PackageMaxArchitectureVersion>
+    </PackageInfo>
+  </PackageInfoList>
 </StoreAssociation>

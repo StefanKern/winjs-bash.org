@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
-  <Identity Name="4580StefanKern.bash.org" Version="1.1.0.2" Publisher="CN=E4D43427-1542-4892-A2CC-873F36FFF607" />
+  <Identity Name="4580StefanKern.bash.org" Version="2014.804.114.3834" Publisher="CN=E4D43427-1542-4892-A2CC-873F36FFF607" />
   <mp:PhoneIdentity PhoneProductId="cea6c335-3692-4755-a025-67e5a38ed5e6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>bash.org</DisplayName>

@@ -15,7 +15,6 @@
     <Content Include="$(MSBuildThisFileDirectory)images\Square150x150Logo.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\Square44x44Logo.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\Square71x71Logo.scale-240.png" />
-    <Content Include="$(MSBuildThisFileDirectory)images\StoreLogo.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)images\Wide310x150Logo.scale-240.png" />
     <Content Include="$(MSBuildThisFileDirectory)js\jquery-1.11.1.min.js" />
     <Content Include="$(MSBuildThisFileDirectory)js\jquery-2.1.1.min.js" />
@@ -57,8 +56,6 @@
     <Content Include="$(MSBuildThisFileDirectory)sample-utils\sample-utils.js" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="$(MSBuildThisFileDirectory)strings\de-DE\resources.resjson" />
     <PRIResource Include="$(MSBuildThisFileDirectory)strings\en-US\resources.resjson" />
-    <PRIResource Include="$(MSBuildThisFileDirectory)strings\fr-FR\resources.resjson" />
   </ItemGroup>
 </Project>

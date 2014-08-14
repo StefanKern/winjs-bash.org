@@ -15,21 +15,18 @@ Copyright (c) Microsoft Corporation. All rights reserved
 
     <!-- SDK sample framework references -->
     <link rel="stylesheet" href="/css/default.css" />
-    <!--<link rel="stylesheet" href="css/phone-app.css" />-->
-    <!--<script src="/js/sample-configuration.js"></script>-->
-    <!--<script src="/sample-utils/sample-utils.js"></script>-->
-</head>
-<body role="application">
-    <div id="content">
-        <div id="contentHost"></div>
-        <div id="statusMessage"></div>
-    </div>
 
 
     <script src="/js/default.js"></script>
     <script src="/js/jquery-2.1.1.min.js"></script>
     <script src="/js/jquery.touchSwipe.min.js"></script>
     <script src="/js/knockout-3.1.0.js"></script>
+</head>
+<body role="application">
+    <div id="content">
+        <div id="contentHost"></div>
+        <div id="statusMessage"></div>
+    </div>
     <script>
         (function () {
             function linkClickEventHandler(eventInfo) {
@@ -46,8 +43,6 @@ Copyright (c) Microsoft Corporation. All rights reserved
             }
 
             $('body').on('click', 'a', linkClickEventHandler);
-
-            //WinJS.Utilities.query("a").listen("click", linkClickEventHandler, false);
         })();
     </script>
 </body>

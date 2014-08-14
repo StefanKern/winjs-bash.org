@@ -13,12 +13,12 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>865B7E5C-920C-4E3A-9D19-0AAB1145239A</ProjectGuid>
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')"/>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0'">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props"/>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props"/>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
   <PropertyGroup>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
@@ -26,8 +26,8 @@
     <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
   </PropertyGroup>
-  <Import Project="..\Shared\Shared.projitems" Label="Shared"/>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets"/>
+  <Import Project="..\Shared\Shared.projitems" Label="Shared" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
   <!-- To modify your build process, add your task inside one of the targets below then uncomment
        that target and the DisableFastUpToDateCheck PropertyGroup. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -40,29 +40,23 @@
   </PropertyGroup>
   -->
   <ItemGroup>
-    <Content Include="default.html"/>
-    <Content Include="css\default.css"/>
-    <Content Include="css\windows-app.css"/>
+    <Content Include="default.html" />
+    <Content Include="css\default.css" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\default.js"/>
+    <Content Include="images\splash-Windows-sdk.png" />
+    <Content Include="js\default.js" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\appbar-listview.css" />
-    <Content Include="css\appbar-vertical.css" />
-    <Content Include="css\custom-content.css" />
-    <Content Include="html\appbar-listview.html" />
-    <Content Include="html\appbar-vertical.html" />
-    <Content Include="html\custom-content.html" />
     <Content Include="images\accept.png" />
     <Content Include="images\accept.contrast-black.png" />
     <Content Include="images\accept.contrast-white.png" />
-    <Content Include="images\40Banana.png"/>
-    <Content Include="images\60Lemon.png"/>
-    <Content Include="images\60Mint.png"/>
-    <Content Include="images\60Orange.png"/>
-    <Content Include="images\60Strawberry.png"/>
-    <Content Include="images\60Vanilla.png"/>
+    <Content Include="images\40Banana.png" />
+    <Content Include="images\60Lemon.png" />
+    <Content Include="images\60Mint.png" />
+    <Content Include="images\60Orange.png" />
+    <Content Include="images\60Strawberry.png" />
+    <Content Include="images\60Vanilla.png" />
     <Content Include="js\appbar-listview.js" />
     <Content Include="js\appbar-vertical.js" />
     <Content Include="js\custom-content.js" />
@@ -74,6 +68,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="Microsoft.WinJS.2.0, Version=1.0"/>
+    <SDKReference Include="Microsoft.WinJS.2.0, Version=1.0" />
   </ItemGroup>
 </Project>
